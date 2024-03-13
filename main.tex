@@ -1,0 +1,22 @@
+\documentclass{beamer}
+\usepackage[backend=bibtex,style=numeric]{biblatex}
+\usepackage{bookmark}
+
+\addbibresource{bibliography.bib}
+\setbeamertemplate{navigation symbols}{}
+
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+\usepackage{commands}
+
+\input{title-page.tex}
+
+\begin{document}
+
+\input{slides.tex}
+
+\begin{frame}
+    \printbibliography
+\end{frame}
+
+\end{document}
