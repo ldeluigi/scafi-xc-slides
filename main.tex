@@ -1,7 +1,9 @@
 \documentclass{beamer}
-\usepackage[backend=bibtex,style=numeric]{biblatex}
-\usepackage{bookmark}
 \usepackage{acronym}
+\usepackage[backend=bibtex,style=ieee]{biblatex}
+\usepackage{bookmark}
+\usepackage{code-lstlistings}
+\usepackage{hyperref}
 
 \addbibresource{bibliography.bib}
 \setbeamertemplate{navigation symbols}{}
@@ -16,7 +18,8 @@
 
 \input{slides.tex}
 
-\begin{frame}
+\begin{frame}[allowframebreaks]
+    \frametitle{Bibliography}
     \printbibliography
 \end{frame}
 
