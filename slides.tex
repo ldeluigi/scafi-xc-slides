@@ -68,7 +68,7 @@
     \begin{blockitems}{Goals}
         \item Redesign and implement a new \ac{DSL} \ac{API} for the \texttt{core} module, using Scala 3 features
         \item Use \ac{XC} as the formal foundation for the new \ac{DSL} implementation
-        \item Support the new \ac{DSL} with a pure Scala 3 simulator and possibly integrate it with the Alchemist simulator
+        \item Support the new \ac{DSL} with a pure Scala 3 simulator and possibly integrate it with the Alchemist simulator, avoiding third-party dependencies
         \item Write meaningful acceptance tests for validating the entire suite, in the \texttt{tests} module
     \end{blockitems}
 \end{frame}
@@ -167,14 +167,21 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Conclusions and Future Work}
+    \frametitle{Conclusions}
     \begin{blockitems}{Achievements}
         \item Successful redesign and implementation of a new \ac{DSL} for the \texttt{core} module of \this, using advanced programming patterns and Scala 3 features, serving as the foundation for future developments in the \ac{AC} field
         \item Satisfaction of all the requirements, including optional ones, such as the integration with the Alchemist simulator
         \item Code quality and maintainability evaluated with static analysis, continuous integration, and peer review
     \end{blockitems}
-    \begin {blockitems}{Future Work}
-        \item asd
+\end{frame}
+
+\begin{frame}
+    \frametitle{Future Work}
+    \begin {blockitems}{Main areas of future work}
+        \item Performance optimization: the current implementation only focuses on correctness, reusability, and readability
+        \item Improvement of the simulator
+        \item Support real-world deployment use cases with the equivalent of the \texttt{distributed} module in ScaFi
+        \item Add more standard libraries and acceptance tests
     \end{blockitems}
 \end{frame}
 
