@@ -12,6 +12,7 @@
 \acrodef{ADT}{Algebraic Data Type}
 \acrodef{API}{Application Programming Interface}
 \acrodef{DOT}{Dependent Object Types}
+\acrodef{NPM}{Node Package Manager}
 
 \begin{frame}
     \frametitle{Context}
@@ -27,13 +28,13 @@
 
 \begin{frame}
     \frametitle{State of the Art}
-    \begin{blockitems}{ScaFi: Aggregate Programming framework}
+    \begin{blockitems}{ScaFi: an Aggregate Programming framework written in Scala}
         \item \textbf{Internal \ac{DSL}}: ScaFi offers an internal domain-specific language for defining aggregate programs~\cite{scafi}
         \item \textbf{Scala 2}: the host language for ScaFi is Scala 2, natively targeting the \ac{JVM}~\cite{scafi-thesis}
         \item \textbf{Based on \ac{FC}}: ScaFi's construct syntax and semantics are based on the Field Calculus formal language
         \item \textbf{Runtime}: the framework offers a runtime environment for executing aggregate programs on a network of devices based on \textit{Akka}
         \item \textbf{Simulation}: ScaFi provides a simulation environment for testing aggregate programs, with \acp{GUI}, as well as integration with the \textbf{Alchemist} simulator~\cite{alchemist,scafi-with-alchemist}
-        \item \textbf{Multiplatform}: the core and simulator of ScaFi can be compiled into JavaScript
+        \item \textbf{Multiplatform}: the core and simulator of ScaFi are compiled into JavaScript and delivered though \ac{NPM}
     \end{blockitems}
 \end{frame}
 
@@ -58,18 +59,19 @@
     \end{blockitems}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[allowframebreaks]
     \frametitle{Requirements}
     \begin{blockitems}{Collected with interviews to three \textit{key users}}
         \item \textbf{End users}: who uses \this to write aggregate programs
         \item \textbf{Library developers}: who takes care of extending the standard library of \this with new features, constructs, and syntax
         \item \textbf{Researchers}: who experiments with the formal calculus foundation od \this and could benefit from reusing existing libraries
     \end{blockitems}
-    \begin{blockitems}{Goals}
+    \begin{blockitems}{Main goals}
         \item Redesign and implement a new \ac{DSL} \ac{API} for the \texttt{core} module, using Scala 3 features
         \item Use \ac{XC} as the formal foundation for the new \ac{DSL} implementation
-        \item Support the new \ac{DSL} with a pure Scala 3 simulator and possibly integrate it with the Alchemist simulator, avoiding third-party dependencies
-        \item Write meaningful acceptance tests for validating the entire suite, in the \texttt{tests} module
+        \item Support the new \ac{DSL} with a pure Scala 3 simulator, avoiding third-party dependencies
+        \item Write meaningful acceptance tests for validating the entire suite
+        \item Optionally, integrate the \texttt{core} with the Alchemist simulator
     \end{blockitems}
 \end{frame}
 
@@ -116,19 +118,19 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Comparison with State of the Art \ac{AC} frameworks: FCPP}
-    \begin{exampleblock}{FCPP~\cite{fcpp}}
-        \lstinputlisting[xleftmargin=10pt, language=C++, caption={Gradient distance from a source in FCPP.}, label={lst:gradient-distance-fcpp}]{listings/fcpp-gradient-distance.cpp}
-    \end{exampleblock}
-\end{frame}
+% \begin{frame}
+%     \frametitle{Comparison with State of the Art \ac{AC} frameworks: FCPP}
+%     \begin{exampleblock}{FCPP~\cite{fcpp}}
+%         \lstinputlisting[xleftmargin=10pt, language=C++, caption={Gradient distance from a source in FCPP.}, label={lst:gradient-distance-fcpp}]{listings/fcpp-gradient-distance.cpp}
+%     \end{exampleblock}
+% \end{frame}
 
-\begin{frame}
-    \frametitle{Comparison with State of the Art \ac{AC} frameworks: Protelis}
-    \begin{exampleblock}{Protelis~\cite{protelis}}
-        \lstinputlisting[xleftmargin=10pt, language=Protelis, caption={Gradient distance from a source in Protelis.}, label={lst:gradient-distance-protelis}]{listings/protelis-gradient-distance.pt}
-    \end{exampleblock}
-\end{frame}
+% \begin{frame}
+%     \frametitle{Comparison with State of the Art \ac{AC} frameworks: Protelis}
+%     \begin{exampleblock}{Protelis~\cite{protelis}}
+%         \lstinputlisting[xleftmargin=10pt, language=Protelis, caption={Gradient distance from a source in Protelis.}, label={lst:gradient-distance-protelis}]{listings/protelis-gradient-distance.pt}
+%     \end{exampleblock}
+% \end{frame}
 
 \begin{frame}
     \frametitle{Comparison with State of the Art \ac{AC} frameworks: ScaFi}
@@ -171,7 +173,7 @@
     \begin{blockitems}{Achievements}
         \item Successful redesign and implementation of a new \ac{DSL} for the \texttt{core} module of \this, using advanced programming patterns and Scala 3 features, serving as the foundation for future developments in the \ac{AC} field
         \item Satisfaction of all the requirements, including optional ones, such as the integration with the Alchemist simulator
-        \item Code quality and maintainability evaluated with static analysis, continuous integration, and peer review
+        \item Code quality and maintainability enforced with static analysis, continuous integration, and evaluated with peer reviews
     \end{blockitems}
 \end{frame}
 
