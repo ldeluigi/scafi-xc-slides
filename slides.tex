@@ -59,53 +59,49 @@
     \end{blockitems}
 \end{frame}
 
-\begin{frame}[allowframebreaks]
-    \frametitle{Requirements}
-    \begin{blockitems}{Collected with interviews to three \textit{key users}}
+\begin{frame}
+    \frametitle{Key Users}
+    \begin{itemize}
         \item \textbf{End users}: who uses \this to write aggregate programs
         \item \textbf{Library developers}: who takes care of extending the standard library of \this with new features, constructs, and syntax
         \item \textbf{Researchers}: who experiments with the formal calculus foundation od \this and could benefit from reusing existing libraries
-    \end{blockitems}
-    \begin{blockitems}{Main goals}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Requirements}
+    \begin{itemize}
         \item Redesign and implement a new \ac{DSL} \ac{API} for the \texttt{core} module, using Scala 3 features
         \item Use \ac{XC} as the formal foundation for the new \ac{DSL} implementation
         \item Support the new \ac{DSL} with a pure Scala 3 simulator, avoiding third-party dependencies
         \item Write meaningful acceptance tests for validating the entire suite
         \item Optionally, integrate the \texttt{core} with the Alchemist simulator
-    \end{blockitems}
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
     \frametitle{\ac{DSL} Design}
-    \begin{blockitems}{Each of four prototypes is built around a Scala 3 pattern}
-        \item Prototype 1: \textbf{Extension methods and type classes}
-        \item Prototype 2: \textbf{Given instances in class constructors}
-        \item Prototype 3: \textbf{Given instances in method parameters}
-        \item Prototype 4: \textbf{Mixin composition}, similarly to the original ScaFi
-    \end{blockitems}
-    \begin{blockitems}{Final version of the \ac{DSL}}
+    Four prototypes have been implemented and evaluated with the \textit{key users} to collect feedback and decide the final design.
+
+    \textbf{Final version of the \ac{DSL}:}
+    \begin{itemize}
         \item \texttt{AggregateFoundation} as the base trait for all calculi syntaxes
         \item \ac{XC} implemented both as a syntax trait and as a semantics foundation
         \item The entire \ac{DSL} library is generic in the calculus it supports, only cares about available operations and syntax
         \item Actual implementation of the semantics is left to runtime providers, albeit \this offers a default implementation of the \ac{XC} semantics
-    \end{blockitems}
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
     \frametitle{Implementation Milestones}
-    \begin{blockitems}{Supporting Modules}
-        \item \textbf{Engine}: Implements the round-based aggregate program execution
-        \item \textbf{Simulator}: Pure Scala 3 implementation of a static, in-memory network of devices, all running the provided program and exchanging messages, without \ac{GUI}
-        \item \textbf{Alchemist integration}: Integration with the Alchemist simulator, for running aggregate programs in a more realistic environment, with customizable \ac{GUI}
-    \end{blockitems}
-\end{frame}
-
-\begin{frame}
-    \begin{blockitems}{Additional Features}
-        \item \textbf{Tests}: includes both unit tests for components and \textbf{acceptance tests} for simulated networks
+    \begin{itemize}
+        \item \textbf{Engine} module: round-based aggregate program execution
+        \item \textbf{Simulator} module: pure Scala 3, in-memory, without \ac{GUI}
+        \item \textbf{Alchemist} module: Integration with the Alchemist simulator, for running aggregate programs in a more realistic environment, with customizable \ac{GUI}
+        \item \textbf{Tests}: both unit tests for components and \textbf{acceptance tests} for simulated networks
         \item \textbf{Code Quality}: enforced by static analysis tools, pedantic compilation flags, and continuous integration
-        \item \textbf{Cross-compilation}: written in pure Scala 3, \this targets the \ac{JVM}, JavaScript, and native code
-    \end{blockitems}
+        \item \textbf{Cross-compilation}: pure Scala 3, targets the \ac{JVM}, JavaScript, and native code
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -162,29 +158,29 @@
 
 \begin{frame}
     \frametitle{Experiments with Scala 3 and the \ac{DSL}}
-    \begin{blockitems}{Successful experiments with Scala 3 and \this}
+    \begin{itemize}
         \item Implementation of a \texttt{FoldhoodLibrary} that provides a \textit{foldhood} \ac{API} similar to the one in ScaFi, proving the expressiveness of the \this \ac{DSL}
         \item Implementation of a series of constraints for aggregate programming correctness that can be statically checked by the Scala 3 compiler, without using macros or metaprogramming, only relying on context bounds and given instances.
-    \end{blockitems}
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
     \frametitle{Conclusions}
-    \begin{blockitems}{Achievements}
+    \begin{itemize}
         \item Successful redesign and implementation of a new \ac{DSL} for the \texttt{core} module of \this, using advanced programming patterns and Scala 3 features, serving as the foundation for future developments in the \ac{AC} field
         \item Satisfaction of all the requirements, including optional ones, such as the integration with the Alchemist simulator
         \item Code quality and maintainability enforced with static analysis, continuous integration, and evaluated with peer reviews
-    \end{blockitems}
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
     \frametitle{Future Work}
-    \begin {blockitems}{Main areas of future work}
+    \begin{itemize}
         \item Performance optimization: the current implementation only focuses on correctness, reusability, and readability
         \item Improvement of the simulator
         \item Support real-world deployment use cases with the equivalent of the \texttt{distributed} module in ScaFi
         \item Add more standard libraries and acceptance tests
-    \end{blockitems}
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
