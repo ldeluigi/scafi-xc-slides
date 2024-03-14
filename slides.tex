@@ -28,7 +28,7 @@
 
 \begin{frame}
     \frametitle{State of the Art}
-    \begin{blockitems}{ScaFi: an Aggregate Programming framework written in Scala}
+    \begin{blockitems}{ScaFi: an Aggregate Programming framework written in Scala 2}
         \item \textbf{Internal \ac{DSL}}: ScaFi offers an internal domain-specific language for defining aggregate programs~\cite{scafi}
         \item \textbf{Scala 2}: the host language for ScaFi is Scala 2, natively targeting the \ac{JVM}~\cite{scafi-thesis}
         \item \textbf{Based on \ac{FC}}: ScaFi's construct syntax and semantics are based on the Field Calculus formal language
@@ -171,16 +171,12 @@
         \item Satisfaction of all the requirements, including optional ones, such as the integration with the Alchemist simulator
         \item Code quality and maintainability enforced with static analysis, continuous integration, and evaluated with peer reviews
     \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Future Work}
-    \begin{itemize}
+    \begin{blockitems}{Future Work}
         \item Performance optimization: the current implementation only focuses on correctness, reusability, and readability
         \item Improvement of the simulator
         \item Support real-world deployment use cases with the equivalent of the \texttt{distributed} module in ScaFi
         \item Add more standard libraries and acceptance tests
-    \end{itemize}
+    \end{blockitems}
 \end{frame}
 
 \begin{frame}
