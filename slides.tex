@@ -60,15 +60,6 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Key Users}
-    \begin{itemize}
-        \item \textbf{End users}: who uses \this to write aggregate programs
-        \item \textbf{Library developers}: who takes care of extending the standard library of \this with new features, constructs, and syntax
-        \item \textbf{Researchers}: who experiments with the formal calculus foundation od \this and could benefit from reusing existing libraries
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
     \frametitle{Requirements}
     \begin{itemize}
         \item Redesign and implement a new \ac{DSL} \ac{API} for the \texttt{core} module, using Scala 3 features
@@ -80,9 +71,18 @@
 \end{frame}
 
 \begin{frame}
+    \frametitle{Key Users}
+    \begin{itemize}
+        \item \textbf{End users}: who uses \this to write aggregate programs
+        \item \textbf{Library developers}: who takes care of extending the standard library of \this with new features, constructs, and syntax
+        \item \textbf{Researchers}: who experiments with the formal calculus foundation od \this and could benefit from reusing existing libraries
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
     \frametitle{\ac{DSL} Design}
     Four prototypes have been implemented and evaluated with the \textit{key users} to collect feedback and decide the final design.
-
+    
     \textbf{Final version of the \ac{DSL}:}
     \begin{itemize}
         \item \texttt{AggregateFoundation} as the base trait for all calculi syntaxes
@@ -90,6 +90,20 @@
         \item The entire \ac{DSL} library is generic in the calculus it supports, only cares about available operations and syntax
         \item Actual implementation of the semantics is left to runtime providers, albeit \this offers a default implementation of the \ac{XC} semantics
     \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Comparison with the State of the Art: ScaFi}
+    \begin{exampleblock}{ScaFi}
+        \lstinputlisting[xleftmargin=10pt, language=Scala, caption={Gradient distance from a source in ScaFi.}, label={lst:gradient-distance-scafi}]{listings/scafi-gradient-distance.scala}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Comparison with the State of the Art: \this}
+    \begin{exampleblock}{\this - GradientLibrary: distanceTo}
+        \lstinputlisting[xleftmargin=10pt, language=Scala, caption={\texttt{distanceTo} implementation in \this.}, label={lst:distance-to}]{listings/distance-to.scala}
+    \end{exampleblock}
 \end{frame}
 
 \begin{frame}
@@ -101,6 +115,7 @@
         \item \textbf{Tests}: both unit tests for components and \textbf{acceptance tests} for simulated networks
         \item \textbf{Code Quality}: enforced by static analysis tools, pedantic compilation flags, and continuous integration
         \item \textbf{Cross-compilation}: pure Scala 3, targets the \ac{JVM}, JavaScript, and native code
+        \item \textbf{Experiments}: % TODO
     \end{itemize}
 \end{frame}
 
@@ -128,13 +143,6 @@
 %     \end{exampleblock}
 % \end{frame}
 
-\begin{frame}
-    \frametitle{Comparison with the State of the Art: ScaFi}
-    \begin{exampleblock}{ScaFi}
-        \lstinputlisting[xleftmargin=10pt, language=Scala, caption={Gradient distance from a source in ScaFi.}, label={lst:gradient-distance-scafi}]{listings/scafi-gradient-distance.scala}
-    \end{exampleblock}
-\end{frame}
-
 % \begin{frame}
 %     \frametitle{Comparison with State of the Art: \ac{XC}}
 %     \begin{exampleblock}{\ac{XC}}
@@ -149,48 +157,24 @@
 %     \end{exampleblock}
 % \end{frame}
 
-\begin{frame}
-    \frametitle{Comparison with the State of the Art: \this}
-    \begin{exampleblock}{\this - GradientLibrary: distanceTo}
-        \lstinputlisting[xleftmargin=10pt, language=Scala, caption={\texttt{distanceTo} implementation in \this.}, label={lst:distance-to}]{listings/distance-to.scala}
-    \end{exampleblock}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Experiments with Scala 3 and the \ac{DSL}}
-    \begin{itemize}
-        \item Implementation of a \texttt{FoldhoodLibrary} that provides a \textit{foldhood} \ac{API} similar to the one in ScaFi, proving the expressiveness of the \this \ac{DSL}
-        \item Implementation of a series of constraints for aggregate programming correctness that can be statically checked by the Scala 3 compiler, without using macros or metaprogramming, only relying on context bounds and given instances.
-    \end{itemize}
-\end{frame}
+% \begin{frame}
+%     \frametitle{Experiments with Scala 3 and the \ac{DSL}}
+%     \begin{itemize}
+%         \item Implementation of a \texttt{FoldhoodLibrary} that provides a \textit{foldhood} \ac{API} similar to the one in ScaFi, proving the expressiveness of the \this \ac{DSL}
+%         \item Implementation of a series of constraints for aggregate programming correctness that can be statically checked by the Scala 3 compiler, without using macros or metaprogramming, only relying on context bounds and given instances.
+%     \end{itemize}
+% \end{frame}
 
 \begin{frame}
     \frametitle{Conclusions}
     \begin{itemize}
-        \item Successful redesign and implementation of a new \ac{DSL} for the \texttt{core} module of \this, using advanced programming patterns and Scala 3 features, serving as the foundation for future developments in the \ac{AC} field
-        \item Satisfaction of all the requirements, including optional ones, such as the integration with the Alchemist simulator
-        \item Code quality and maintainability enforced with static analysis, continuous integration, and evaluated with peer reviews
+        \item Successful redesign and implementation of a new \ac{DSL} for the \texttt{core} module of \this
+        \item Employment of advanced programming patterns and Scala 3 features
+        \item Satisfaction of all the requirements, including optional ones
     \end{itemize}
     \begin{blockitems}{Future Work}
         \item Performance optimization: the current implementation only focuses on correctness, reusability, and readability
         \item Improvement of the simulator
         \item Support real-world deployment use cases with the equivalent of the \texttt{distributed} module in ScaFi
-        \item Add more standard libraries and acceptance tests
     \end{blockitems}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Acknowledgments}
-    \begin{blockitems}{Supervisors}
-        \item Prof. Mirko Viroli
-        \item Dr. Gianluca Aguzzi
-        \item Dr. Roberto Casadei
-    \end{blockitems}
-    \begin{block}{Others}
-        Thanks to all the people who contributed to the development of \this, including the authors of the original ScaFi framework, the Alchemist simulator, the \ac{XC} formal language, and the community of Scala 3 developers.
-
-        Thanks to my family and friends for their support and patience.
-
-        \textit{Thank you for your attention.}
-    \end{block}
 \end{frame}
